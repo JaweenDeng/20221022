@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { IListData, addList, handleEditList, deleteList } from './postSlice';
 import { PostModal  } from "./PostModal";
@@ -23,7 +24,7 @@ export function PostList () {
   }
   return(
     <>
-      <i onClick={ handleList }>添加</i>
+      <Button type="primary" onClick={ handleList }>添加</Button>
       <ul>
         {
           List.map((item:IListData, index:number) => (
