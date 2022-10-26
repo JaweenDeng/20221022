@@ -2,12 +2,21 @@
  * @Author: djw
  * @Description: 匹配二级路由
  */
+import { useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate  } from "react-router-dom"
+import { LoginApi } from '../../api/test'
 export const PostChild = () => {
   let params = useParams()
   let [searchParams, setSearchParams] = useSearchParams()
   let navigate = useNavigate()
-  console.log(searchParams.get('id'), setSearchParams)
+  console.log(searchParams.get('filter'), params)
+  const getData = async () => {
+    const data = await LoginApi({})
+    console.log(data, 'data')
+  }
+  useEffect(() =>{
+    getData()
+  }, [])
   return(
     <>
       <div onClick={ () => setSearchParams({filter:'2342'})}>
