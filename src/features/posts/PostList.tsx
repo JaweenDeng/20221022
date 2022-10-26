@@ -1,8 +1,9 @@
 import { Button } from 'antd';
+import { useState } from "react";
+import { Outlet } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { IListData, addList, handleEditList, deleteList } from './postSlice';
 import { PostModal  } from "./PostModal";
-import { useState } from "react";
 export function PostList () {
   const List:Array<IListData> = useAppSelector(state => state.post.list)
   const dispatch = useAppDispatch()
@@ -40,6 +41,7 @@ export function PostList () {
       {
         isShowForm && <PostModal data={curItem} submit={ handleSubmit } />
       }
+      <Outlet />
     </>
   )
 }
