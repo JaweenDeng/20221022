@@ -2,11 +2,12 @@
  * @Author: djw
  * @Description: 新闻列表修改弹窗
  */
-import { useState } from 'react';
+import { useState, ReactNode } from 'react';
 import { IListData } from './postSlice';
 interface IProps {
   data:IListData,
-  submit:(data:IListData) => void
+  submit:(data:IListData) => void,
+  children?:ReactNode
 }
 export function PostModal(props:IProps) {
   const { data, submit } = props
@@ -32,6 +33,7 @@ export function PostModal(props:IProps) {
       title:<input name="title" value={ title } onChange={(e) => handleTitle(e.target.value)} /><br />
       content:<input name="content" value={ content } onChange={(e) => handleContent(e.target.value)} /><br />
       <button onClick={ handleSubmit }>提交</button>
+      { props.children }
     </>
   )
 }

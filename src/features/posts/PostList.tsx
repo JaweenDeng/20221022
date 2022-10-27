@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { IListData, addList, handleEditList, deleteList } from './postSlice';
@@ -23,6 +23,9 @@ export function PostList () {
     }
     setIsShowForm(false)
   }
+  useEffect(() => {
+    console.log('postList')
+  }, [])
   return(
     <>
       <Button type="primary" onClick={ handleList }>添加</Button>
@@ -39,7 +42,7 @@ export function PostList () {
         }
       </ul>
       {
-        isShowForm && <PostModal data={curItem} submit={ handleSubmit } />
+        isShowForm && <PostModal data={curItem} submit={ handleSubmit }><div>slot</div></PostModal>
       }
       <Outlet />
     </>

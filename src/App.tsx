@@ -7,6 +7,10 @@ import { PostChild } from './features/posts/PostChild'
 import { Login } from './compoments/Login';
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
+// hooks
+// 消息订阅
+// 高阶组件
+
 interface IRoutes {
   path:string,
   auth:boolean,
